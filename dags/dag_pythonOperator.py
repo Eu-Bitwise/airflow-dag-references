@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow.operators.python import PythonOperator
 
 default_args = {
-    'owner': 'ljeles',
+    'owner': 'Eu-Bitwise',
     'retries': 5,
     'retry_delay': timedelta(minutes=2)
 }

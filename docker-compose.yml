@@ -17,7 +17,7 @@ services:
       - postgres
     environment:
       AIRFLOW_DATABASE_BACKEND: postgresql
-      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql://airflow:airflow@postgres:5432/airflow
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql://airflow:airflow@postgres:5432/airflow
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     ports:
@@ -33,12 +33,11 @@ services:
       --lastname Admin \
       --role Admin \
       --email admin@example.com && \
-      airflow connections add 'postgres_localhost' \
-      --conn-type 'postgres' \
-      --conn-login 'airflow' \
-      --conn-password 'airflow' \
-      --conn-host postgres \
-      --conn-port '5432' \
-      --conn-schema 'airflow' && \
-      airflow webserver && airflow scheduler"
-
+      airflow connections add \"postgres_localhost\" \
+      --conn-type \"postgres\" \
+      --conn-login \"airflow\" \
+      --conn-password \"airflow\" \
+      --conn-host \"postgres\" \
+      --conn-port \"5432\" \
+      --conn-schema \"airflow\" && \
+      airflow scheduler & airflow webserver"

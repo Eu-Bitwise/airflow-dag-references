@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow.operators.postgres_operator import PostgresOperator
 
 default_args = {
-    'owner': 'ljeles',
+    'owner': 'Eu-Bitwise',
     'retries': 5,
     'retry_delay': timedelta(minutes=2)
 }
